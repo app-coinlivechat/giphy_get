@@ -126,6 +126,7 @@ class _GiphyTabDetailState extends State<GiphyTabDetail> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       // child: StaggeredGrid.countB
       child: MasonryGridView.count(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: _scrollDirection,
         controller: widget.scrollController,
         itemCount: _list.length,
