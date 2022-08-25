@@ -20,7 +20,7 @@ class GiphyTabBottom extends StatelessWidget {
 
     return Container(
       width: double.maxFinite,
-      height: 15,
+      height: 40,
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.fitHeight,
