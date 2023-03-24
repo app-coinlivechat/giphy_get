@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class GiphyTabBottom extends StatelessWidget {
-  const GiphyTabBottom({Key? key}) : super(key: key);
+  const GiphyTabBottom({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,14 @@ class GiphyTabBottom extends StatelessWidget {
       height: 40,
       margin: const EdgeInsets.symmetric(vertical: 10.0),
       decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.fitHeight,
-              image: AssetImage(
-                "$basePath$logoPath",
-                package: 'giphy_get',
-              ))),
+        image: DecorationImage(
+          fit: BoxFit.fitHeight,
+          image: AssetImage(
+            "$basePath$logoPath",
+            package: 'giphy_get',
+          ),
+        ),
+      ),
     );
   }
 }

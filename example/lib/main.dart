@@ -31,15 +31,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Giphy Get Demo',
       theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          brightness: Brightness.light,
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          useMaterial3: Provider.of<ThemeProvider>(context).material3),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.purple,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          brightness: Brightness.dark,
+          primarySwatch: Colors.purple,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          useMaterial3: Provider.of<ThemeProvider>(context).material3),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -48,6 +48,8 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en', ''),
         Locale('es', ''),
+        Locale('da', ''),
+        Locale('fr', ''),
       ],
       home: const MyHomePage(title: 'Giphy Get Demo'),
       themeMode: Provider.of<ThemeProvider>(context).currentTheme,
@@ -136,6 +138,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           })
                     ],
                   ),
+                  Row(
+                    children: [
+                      const Expanded(child: Text("Material 3")),
+                      Switch(
+                          value: themeProvider.material3,
+                          onChanged: (value) {
+                            themeProvider.setMaterial3(value);
+                          })
+                    ],
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -163,7 +175,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             floatingActionButton: FloatingActionButton(
                 onPressed: () async {
-                  giphyGetWrapper.getGif('', context);
+                  giphyGetWrapper.getGif(
+                    '',
+                    context,
+                    showGIFs: true,
+                    showStickers: true,
+                    showEmojis: true,
+                  );
                 },
                 tooltip: 'Open Sticker',
                 child: const Icon(Icons
