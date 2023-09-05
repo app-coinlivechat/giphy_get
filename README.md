@@ -66,16 +66,19 @@ GiphyGif gif = await GiphyGet.getGif(
 
 ### Options
 
-| Value                        | Type   | Description                                                                                                     | Default                         |
-| ---------------------------- | ------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `lang`                       | String | Use [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code or use GiphyLanguage constants           | `GiphyLanguage.english`         |
-| `randomID`                   | String | An ID/proxy for a specific user.                                                                                | `null`                          |
-| `searchText`                 | String | Input search hint, we recomend use [flutter_18n package](https://pub.dev/packages/flutter_i18n) for translation | `"Search GIPHY"`                |
-| `tabColor`                   | Color  | Color for tabs and loading progress,                                                                            | `Theme.of(context).accentColor` |
-| `debounceTimeInMilliseconds` | int    | Time to pause between search keystrokes                                                                         | `350`                           |
-| `showGIFs`                   | bool   | Whether to show the GIFs tab or not                                                                             | `true`                          |
-| `showStickers`               | bool   | Whether to show the stickers tab or not                                                                         | `true`                          |
-| `showEmojis`                 | bool   | Whether to show the emojis tab or not                                                                           | `true`                          |
+| Value                        | Type                                                                                                                                                 | Description                                                                                                                                             | Default                                              |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| `lang`                       | String                                                                                                                                               | Use [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code or use GiphyLanguage constants                                                   | `GiphyLanguage.english`                              |
+| `randomID`                   | String                                                                                                                                               | An ID/proxy for a specific user.                                                                                                                        | `null`                                               |
+| `searchText`                 | String                                                                                                                                               | Input search hint, we recomend use [flutter_18n package](https://pub.dev/packages/flutter_i18n) for translation                                         | `"Search GIPHY"`                                     |
+| `tabColor`                   | Color                                                                                                                                                | Color for tabs and loading progress,                                                                                                                    | `Theme.of(context).accentColor`                      |
+| `debounceTimeInMilliseconds` | int                                                                                                                                                  | Time to pause between search keystrokes                                                                                                                 | `350`                                                |
+| `showGIFs`                   | bool                                                                                                                                                 | Whether to show the GIFs tab or not                                                                                                                     | `true`                                               |
+| `showStickers`               | bool                                                                                                                                                 | Whether to show the stickers tab or not                                                                                                                 | `true`                                               |
+| `showEmojis`                 | bool                                                                                                                                                 | Whether to show the emojis tab or not                                                                                                                   | `true`                                               |
+| `tapTopBuilder`              | `Widget Function(BuildContext context)`                                                                                                              | A custom builder for tab top. Must return a widget that will replace default Giphy-like tab top                                                         | `null`. Displays default Giphy-like tab top          |
+| `tabBottomBuilder`           | `Widget Function(BuildContext context)`                                                                                                              | A custom builder for tab bottom. Must return a widget that will replace default Giphy credits logo. Note that credits are required to be shown by Giphy | `null`. Displays default Giphy credits logo          |
+| `searchAppBarBuilder`        | `Widget Function(BuildContext context,FocusNode focusNode,bool autofocus,TextEditingController textEditingController,void Function() onClearSearch)` | A custom builder for search app bar. Must return a widget that will replace default Giphy-like search bar input                                         | `null`. Displays default Giphy-like search bar input |
 
 ### [Get Random ID](https://developers.giphy.com/docs/api/endpoint#random-id)
 
@@ -93,21 +96,22 @@ Optional but this widget is required if you get more gif's of user or view on Gi
 ## GiphyGifWidget
 
 Params
-| Value | Type | Description | Default |
-|---------------------------|--------------------------------------------------|-----------------|------------|
-| gif `required` | GiphyGif |GiphyGif object from stream or JSON | null |  
-|giphyGetWrapper `required`| GiphyGetWrapper |instance required for tap to more | null |
-| showGiphyLabel | boolean | show or hide `Powered by GIPHY`label at bottom | true|
-|borderRadius| BorderRadius ex: BorderRadius.circular(10)| add border radius to image | null|
-|imageAlignment| Alignment | this widget is a [STACK](https://api.flutter.dev/flutter/widgets/Stack-class.html) with Image and tap buttons this property adjust alignment| Alignment.center|
+| Value                      | Type                                       | Description                                                                                                                                  | Default          |
+| -------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| gif `required`             | GiphyGif                                   | GiphyGif object from stream or JSON                                                                                                          | null             |
+| giphyGetWrapper `required` | GiphyGetWrapper                            | instance required for tap to more                                                                                                            | null             |
+| showGiphyLabel             | boolean                                    | show or hide `Powered by GIPHY`label at bottom                                                                                               | true             |
+| borderRadius               | BorderRadius ex: BorderRadius.circular(10) | add border radius to image                                                                                                                   | null             |
+| imageAlignment             | Alignment                                  | this widget is a [STACK](https://api.flutter.dev/flutter/widgets/Stack-class.html) with Image and tap buttons this property adjust alignment | Alignment.center |
 
 ## GiphyGetWrapper
 
 Params
-| Value | Type | Description | Default |
-| ---------|-------------|--------------------|--------------- |
-| `giphy_api_key` required | String | Your Giphy API KEY | null |
-| `builder`| function | return Stream\<GiphyGif\> and Instance of GiphyGetWrapper | null |
+| Value                    | Type     | Description                                               | Default |
+| ------------------------ | -------- | --------------------------------------------------------- | ------- |
+| `giphy_api_key` required | String   | Your Giphy API KEY                                        | null    |
+| `builder`                | function | return Stream\<GiphyGif\> and Instance of GiphyGetWrapper | null    |
+
 
 ## Methods
 

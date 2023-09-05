@@ -1,3 +1,22 @@
+## [3.5.0] - 2023-08-01
+* Up-to-date dependencies
+* Allowing to override the default tab top (the handlebar)
+* Allowing to override the default tab bottom (Giphy's credits)
+* Allowing to override the search part component. In this case the logic part of the search is still made by the original component, only the UI part is overriden.
+thanks to [orevial](https://github.com/orevial)
+## [3.4.2] - 2023-07-18
+* Up-to-date dependencies
+
+## [3.4.1] - 2023-05-11
+* Turkish Added [#51](https://github.com/bazookon/giphy_get/pull/51) thanks to [mobisofts](https://github.com/mobisofts)
+
+## [3.4.0] - 2023-05-11
+* Up-to-date dependencies
+* Ready to flutter 3.10 🎉
+## [3.3.1] - 2023-04-03
+* Up-to-date dependencies
+* [Bug Fix] TabBar text color [#48](https://github.com/bazookon/giphy_get/pull/48) thanks to [sbis04](https://github.com/sbis04)
+
 ## [3.3.0] - 2023-03-09
 * French Added [#46](https://github.com/bazookon/giphy_get/pull/46) thanks to  [benco8186](https://github.com/benco8186)
 * Material 3 supported [#44](https://github.com/bazookon/giphy_get/pull/44) Thanks to [hifiaz](https://github.com/hifiaz)
